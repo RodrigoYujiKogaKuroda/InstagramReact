@@ -4,7 +4,7 @@ import FundoMobile from "./components/FundoMobile";
 
 export default function App() {
     return (
-        <div>
+        <div class="root">
             <NavBar />
             <Corpo />
 

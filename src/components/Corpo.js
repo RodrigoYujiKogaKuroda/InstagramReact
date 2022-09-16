@@ -1,8 +1,6 @@
-import SideBar from "./SideBar";
-import Usuario from "./Usuario";
-import Stories from "./Stories";
 import Posts from "./Posts";
-import Sugestoes from "./Sugestoes";
+import SideBar from "./SideBar";
+import Stories from "./Stories";
 
 export default function Corpo() {
     return (

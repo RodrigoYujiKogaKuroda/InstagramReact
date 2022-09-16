@@ -1,6 +1,7 @@
 export default function Posts() {
     return (
         <div class="posts">
+
           <div class="post">
             <div class="topo">
               <div class="usuario">
@@ -72,6 +73,7 @@ export default function Posts() {
               </div>
             </div>
           </div>
+          
         </div>
     );
 }

@@ -1,81 +1,33 @@
-export default function Stories() {
+export default function Sugestoes() {
+
+    const sugestoes = [
+        {src: "./assets/img/bad.vibes.memes.svg", nome: "bad.vibes.memes", razao: "Segue você"},
+        {src: "./assets/img/chibirdart.svg", nome: "chibirdart", razao: "Segue você"},
+        {src: "./assets/img/razoesparaacreditar.svg", nome: "razoesparaacreditar", razao: "Novo no Instagram"},
+        {src: "./assets/img/adorable_animals.svg", nome: "adorable_animals", razao: "Segue você"},
+        {src: "./assets/img/smallcutecats.svg", nome: "smallcutecats", razao: "Segue você"}
+    ];
+
     return (
-        <div class="stories">
-          <div class="story">
-            <div class="imagem">
-              <img src="assets/img/9gag.svg" />
+        <div class="sugestoes">
+            <div class="titulo">
+                Sugestões para você
+                <div>Ver tudo</div>
             </div>
-            <div class="usuario">
-              9gag
-            </div>
-          </div>
 
-          <div class="story">
-            <div class="imagem">
-              <img src="assets/img/meowed.svg" />
-            </div>
-            <div class="usuario">
-              meowed
-            </div>
-          </div>
-
-          <div class="story">
-            <div class="imagem">
-              <img src="assets/img/barked.svg" />
-            </div>
-            <div class="usuario">
-              barked
-            </div>
-          </div>
-
-          <div class="story">
-            <div class="imagem">
-              <img src="assets/img/nathanwpylestrangeplanet.svg" />
-            </div>
-            <div class="usuario">
-              nathanwpylestrangeplanet
-            </div>
-          </div>
-
-          <div class="story">
-            <div class="imagem">
-              <img src="assets/img/wawawicomics.svg" />
-            </div>
-            <div class="usuario">
-              wawawicomics
-            </div>
-          </div>
-
-          <div class="story">
-            <div class="imagem">
-              <img src="assets/img/respondeai.svg" />
-            </div>
-            <div class="usuario">
-              respondeai
-            </div>
-          </div>
-
-          <div class="story">
-            <div class="imagem">
-              <img src="assets/img/filomoderna.svg" />
-            </div>
-            <div class="usuario">
-              filomoderna
-            </div>
-          </div>
-
-          <div class="story">
-            <div class="imagem">
-              <img src="assets/img/memeriagourmet.svg" />
-            </div>
-            <div class="usuario">
-              memeriagourmet
-            </div>
-          </div>
-
-          <div class="setinha">
-            <ion-icon name="chevron-forward-circle"></ion-icon>
-          </div>
+            {sugestoes.map((sugestao) => 
+                <div class="sugestao">
+                    <div class="usuario">
+                        <img src={sugestao.src} alt={sugestao.nome} />
+                        <div class="texto">
+                            <div class="nome">{sugestao.nome}</div>
+                            <div class="razao">{sugestao.razao}</div>
+                        </div>
+                    </div>
+            
+                    <div class="seguir">Seguir</div>
+                </div>
+            )}
         </div>
     );
 }

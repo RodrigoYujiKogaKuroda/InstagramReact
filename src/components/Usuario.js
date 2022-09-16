@@ -1,7 +1,7 @@
 export default function Usuario(props) {
     return (
         <div class="usuario">
-            <img src={props.img} />
+            <img src={props.img} alt={props.user} />
             <div class="texto">
                 <strong>{props.user}</strong>
                 <span>

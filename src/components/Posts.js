@@ -1,11 +1,15 @@
 import React from 'react';
+import {IonIcon} from "react-ion-icon";
 
 export default function Posts() {
 
     const numberFormat = new Intl.NumberFormat();
 
+    const [classeCurtido1, setClasseCurtido1] = React.useState("");
     const [curtido1, setCurtido1] = React.useState("heart-outline");
     const [numLikes1, setNumLikes1] = React.useState(101523);
+
+    const [classeCurtido2, setClasseCurtido2] = React.useState("");
     const [curtido2, setCurtido2] = React.useState("heart-outline");
     const [numLikes2, setNumLikes2] = React.useState(99159);
 
@@ -13,16 +17,18 @@ export default function Posts() {
     const [salvo2, setSalvo2] = React.useState("bookmark-outline");
 
     const posts = [
-        {userImg: "./assets/img/meowed.svg", userName: "meowed", imgPost: "./assets/img/gato-telefone.svg", nomePost: "gato-telefone", curtido: curtido1, setCurtido: setCurtido1, salvo: salvo1, setSalvo: setSalvo1, imgCurtidas: "./assets/img/respondeai.svg", userCurtidas: "respondeai", curtidas: numLikes1, setCurtidas: setNumLikes1},
-        {userImg: "./assets/img/barked.svg", userName: "barked", imgPost: "./assets/img/dog.svg", nomePost: "dog", curtido: curtido2, setCurtido: setCurtido2, salvo: salvo2, setSalvo: setSalvo2, imgCurtidas: "./assets/img/adorable_animals.svg", userCurtidas: "adorable_animals", curtidas: numLikes2, setCurtidas: setNumLikes2}
+        {userImg: "./assets/img/meowed.svg", userName: "meowed", imgPost: "./assets/img/gato-telefone.svg", nomePost: "gato-telefone", classeCurtido: classeCurtido1, setClasseCurtido: setClasseCurtido1, curtido: curtido1, setCurtido: setCurtido1, salvo: salvo1, setSalvo: setSalvo1, imgCurtidas: "./assets/img/respondeai.svg", userCurtidas: "respondeai", curtidas: numLikes1, setCurtidas: setNumLikes1},
+        {userImg: "./assets/img/barked.svg", userName: "barked", imgPost: "./assets/img/dog.svg", nomePost: "dog", classeCurtido: classeCurtido2, setClasseCurtido: setClasseCurtido2, curtido: curtido2, setCurtido: setCurtido2, salvo: salvo2, setSalvo: setSalvo2, imgCurtidas: "./assets/img/adorable_animals.svg", userCurtidas: "adorable_animals", curtidas: numLikes2, setCurtidas: setNumLikes2}
     ];
 
-    function curtirPost(curtido, setCurtido, curtidas, setCurtidas, ehImagem) {
+    function curtirPost(setClasse, curtido, setCurtido, curtidas, setCurtidas, ehImagem) {
         if (curtido === "heart-outline") {
+            setClasse("curtido");
             setCurtido("heart");
             setCurtidas(curtidas + 1);
         } else {
             if (ehImagem === false) {
+                setClasse("");
                 setCurtido("heart-outline");
                 setCurtidas(curtidas - 1);
             }
@@ -52,13 +58,13 @@ export default function Posts() {
                     </div>
 
                     <div class="conteudo">
-                        <img src={post.imgPost} alt={post.nomePost} onClick={() => curtirPost(post.curtido, post.setCurtido, post.curtidas, post.setCurtidas, true,)} />
+                        <img src={post.imgPost} alt={post.nomePost} onClick={() => curtirPost(post.setClasseCurtido, post.curtido, post.setCurtido, post.curtidas, post.setCurtidas, true,)} />
                     </div>
 
                     <div class="fundo">
                         <div class="acoes">
                             <div>
-                                <ion-icon name={post.curtido} onClick={() => curtirPost(post.curtido, post.setCurtido, post.curtidas, post.setCurtidas, false)}></ion-icon>
+                                <IonIcon class={post.classeCurtido} name={post.curtido} onClick={() => curtirPost(post.setClasseCurtido, post.curtido, post.setCurtido, post.curtidas, post.setCurtidas, false)} />
                                 <ion-icon name="chatbubble-outline"></ion-icon>
                                 <ion-icon name="paper-plane-outline"></ion-icon>
                             </div>

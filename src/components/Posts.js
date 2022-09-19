@@ -1,9 +1,22 @@
+import React from 'react';
+
 export default function Posts() {
 
+    const [salvo1, setSalvo1] = React.useState("bookmark-outline");
+    const [salvo2, setSalvo2] = React.useState("bookmark-outline");
+
     const posts = [
-        {userImg: "./assets/img/meowed.svg", userName: "meowed", imgPost: "./assets/img/gato-telefone.svg", nomePost: "gato-telefone", imgCurtidas: "./assets/img/respondeai.svg", userCurtidas: "respondeai", curtidas: "101.523"},
-        {userImg: "./assets/img/barked.svg", userName: "barked", imgPost: "./assets/img/dog.svg", nomePost: "dog", imgCurtidas: "./assets/img/adorable_animals.svg", userCurtidas: "adorable_animals", curtidas: "99.159"}
+        {userImg: "./assets/img/meowed.svg", userName: "meowed", imgPost: "./assets/img/gato-telefone.svg", nomePost: "gato-telefone", salvo: salvo1, setSalvo: setSalvo1, imgCurtidas: "./assets/img/respondeai.svg", userCurtidas: "respondeai", curtidas: "101.523"},
+        {userImg: "./assets/img/barked.svg", userName: "barked", imgPost: "./assets/img/dog.svg", nomePost: "dog", salvo: salvo2, setSalvo: setSalvo2, imgCurtidas: "./assets/img/adorable_animals.svg", userCurtidas: "adorable_animals", curtidas: "99.159"}
     ];
+
+    function salvarPost(salvo, setSalvo) {
+        if (salvo === "bookmark-outline") {
+            setSalvo("bookmark");
+        } else {
+            setSalvo("bookmark-outline");
+        }
+    }
 
     return (
         <div class="posts">
@@ -31,7 +44,7 @@ export default function Posts() {
                                 <ion-icon name="paper-plane-outline"></ion-icon>
                             </div>
                             <div>
-                                <ion-icon name="bookmark-outline"></ion-icon>
+                                <ion-icon name={post.salvo} onClick={() => salvarPost(post.salvo, post.setSalvo)}></ion-icon>
                             </div>
                         </div>
 
